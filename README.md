@@ -1,6 +1,6 @@
 # VoiceWakeOn
 
-### Description
+## Description
 This project implements a lightweight keyword spotting(KWS) system running on RK3568(or similar rockchip system). 
 The project is based on C/C++.
 
@@ -15,7 +15,7 @@ The system includes:
 - Image playing by DRM
 
 ### Sample
-<video src="https://github.com/66deacai/VoiceWakeOn/raw/refs/heads/main/docs/rk3568_demo.mp4" width="100%" controls></video>
+<video src="docs/rk3568_demo.mp4" controls="controls" width="100%" height="auto"></video>
 
 ### workflow
 
@@ -43,17 +43,7 @@ flowchart TD
     Decision --> |Key word detected|Dynamic(Dynamic image)
 ```
 
-### Getting Started
-
-- compile
-```shell
-./make.sh
-```
-
-- run
-```shell
-./build/voice_cap
-```
+## Getting Started
 
 ### Dependencies
 - ALSA
@@ -61,8 +51,14 @@ flowchart TD
 - GCC (arm-linux-gnueabihf)
 - CMake
 
+### compile
+```shell
+./make.sh
+```
 
-
-
+### run
+```shell
+./build/voice_cap
+```
 
 ***A practice project,  for leaning purpose only***
