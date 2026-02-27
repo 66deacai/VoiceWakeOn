@@ -6,11 +6,24 @@
 #include "common.h"
 #include "AudioCapture.h"
 #include "SpeechDetection.h"
+#include "ProcessExecutor.h"
+#include "ImgDisp/ImageDisplay.h"
+
 
 ring_buffer_t st_g_rBuffer;
 
+static int32_t s32_s_SpeechDetect();
+static int32_t s32_s_StartDisp();
 
 int main() {
+    drm_init();
+    s32_g_staticDisplay();
+    s32_s_SpeechDetect();
+    s32_g_dynamicDisplay();
+}
+
+static int32_t s32_s_SpeechDetect()
+{
     uint32_t u32_t_audioTid;
     
     struct timespec ts;
@@ -28,9 +41,12 @@ int main() {
     SpeechDetection::SpeechDetector st_t_SpeechDetector(&st_g_rBuffer);
     st_t_SpeechDetector.run();
 
-    while(1);
-
     ring_buffer_free(&st_g_rBuffer);
     return 0;
 }
 
+// static int32_t s32_s_StartDisp()
+// {
+//     ProcessManagement::ProcessExecutor st_t_procExec;
+//     st_t_procExec.s32_m_excuteFile(DISPLAYER, )
+// }

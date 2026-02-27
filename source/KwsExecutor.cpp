@@ -10,7 +10,7 @@
 #include "KwsExecutor.h"
 #include "logmel/logmel_trans.h"
 
-#define RKNN_MODEL_PATH "/root/res/kws.rknn"
+#define RKNN_MODEL_PATH "/res/kws.rknn"
 
 #define MEL_BINS 40
 #define NUM_FRAMES 98

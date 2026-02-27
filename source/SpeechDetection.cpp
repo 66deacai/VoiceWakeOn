@@ -13,7 +13,7 @@
 #define SPEECH_BUFFER_LEN       (FRAME_MS * SPEECH_THRESHOLD)
 #define KWS_BUFFER_LEN          (AUDIO_RATE * 1)
 
-#define KWS_MAX_COUNT           (2)
+#define KWS_MAX_COUNT           (4)
 #define SLIDING_WINDOW_MS       (250)
 #define SLIDING_WINDOW_LEN      (SLIDING_WINDOW_MS * AUDIO_RATE / 1000)
 #define SLIDING_WINDOW_COUNT    (1000 / SLIDING_WINDOW_MS)
@@ -68,6 +68,7 @@ enum SPEECH_DETECT_STATUS
 {
     SPEECH_STATUS_SILENCE = 0,
     SPEECH_STATUS_SPEECH,
+    SPEECH_STATUS_WAKE = 0x0FFEFFFF,
     SPEECH_STATUS_EXIT = 0x0FFF0000,
     SPEECH_STATUS_ERR,
 };
@@ -169,7 +170,7 @@ int32_t SpeechDetection::SpeechDetector::s32_m_StatusMachine()
             LOG_ERROR("Unknown speech detection status %d\n", s32_t_status);
             break;
         }
-    } while(s32_t_status < SPEECH_STATUS_EXIT);
+    } while(s32_t_status < SPEECH_STATUS_WAKE);
 
     return s32_t_status;
 }
@@ -336,7 +337,7 @@ int32_t SpeechDetection::SpeechDetector::s32_m_speechStatus()
                 float f_t_confidence;
                 f_t_confidence = stp_m_kwsExecutor->f_m_getConfidence();
                 LOG_INFO("KWS triggered! confidence: %.3f\n", f_t_confidence);
-                s32_t_status = SPEECH_STATUS_SILENCE;
+                s32_t_status = SPEECH_STATUS_WAKE;
                 break;
             }
 

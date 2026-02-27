@@ -19,6 +19,7 @@ target_include_directories(voice_cap PRIVATE
 )
 
 target_link_libraries(voice_cap PRIVATE 
-    pthread asound rknn_api
+    pthread asound rknn_api drm
     ${CMAKE_SOURCE_DIR}/lib/webrtc/libwebrtcvad.a
-    ${CMAKE_SOURCE_DIR}/lib/logmel/liblogmel.a)
+    ${CMAKE_SOURCE_DIR}/lib/logmel/liblogmel.a
+    ${CMAKE_SOURCE_DIR}/lib/ImgDisp/libImgDisp.a)

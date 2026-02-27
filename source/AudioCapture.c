@@ -127,7 +127,8 @@ static void* vd_s_acThread(void* arg) {
         if (s32_t_ret < 0) {
             snd_pcm_prepare(stp_t_pcm);
             fprintf(stderr, "snd_pcm_readi called error\n");
-            continue;
+            // continue;
+            break;
         }
 
         ring_buffer_write(stp_t_rBuffer,
