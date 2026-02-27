@@ -15,6 +15,7 @@ The system includes:
 - Image playing by DRM
 
 ### Sample
+*Preview: power on with static image,when key-word("hello joe") detected, play dynamic vedio*
 [![Watch the video](https://img.youtube.com/vi/q5cUA3mvheU/0.jpg)](https://youtu.be/q5cUA3mvheU)
 
 ### workflow
