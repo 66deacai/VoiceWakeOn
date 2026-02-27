@@ -15,7 +15,7 @@ The system includes:
 - Image playing by DRM
 
 ### Sample
-[video description]("docs/rk3568_demo.mp4")
+[video description](docs/rk3568_demo.mp4)
 
 ### workflow
 
